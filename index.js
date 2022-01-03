@@ -17,7 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("*", cloudinaryConfig);
 
 //database connect
-// const db = "mongodb://localhost:27017/finapp";
 const db = process.env.DB_URI;
 
 mongoose

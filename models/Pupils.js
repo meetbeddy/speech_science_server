@@ -18,6 +18,7 @@ const pupilSchema = new Schema(
     amountPaid: { type: String, required: true },
     paymentDate: { type: String, required: true },
     bankName: { type: String, required: true },
+    confirmed: { type: Boolean, default: false },
     tag: String,
   },
   { timestamps: true }
