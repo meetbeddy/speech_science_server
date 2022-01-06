@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Admin = require("../models/Admin");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -8,16 +7,12 @@ const Pupil = require("../models/Pupils");
 exports.getReferrals = async (req, res) => {
   try {
     const referrals = await Referal.find()
-      .populate({
-        path: " userId",
-        model: "User",
-      })
-      .populate([
-        {
-          path: "referedUsers",
-          model: "User",
-        },
-      ]);
+    .populate([
+      {
+        path: "referedUsers",
+        model: "Pupil",
+      },
+    ]);
 
     res.status(200).json({ referrals });
   } catch (err) {
